@@ -1,5 +1,5 @@
 # File: main.py
-# Purpose: bot that keeps counts of the ohio messages
+# Purpose: bot that keeps counts of the days that users texted in a row on a discord channel
 # Author: Charles Wu
 
 # imports
