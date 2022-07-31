@@ -5,8 +5,12 @@
 # imports
 import discord
 from datetime import date, timedelta, datetime
+from dotenv import dotenv_values
 
-TOKEN = 'INSERT TOKEN HERE'
+config = dotenv_values(".env")
+
+TOKEN = config["TOKEN"]
+CHANNEL_ID = int(config["CHANNEL_ID"])
 client = discord.Client()
 highestScoreHash = {}
 currentScoreHash = {}
@@ -20,7 +24,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.channel.id == "INSERT CHANNEL ID HERE":
+    if message.channel.id == CHANNEL_ID:
         user = str(message.author)
         userID = user.split('#')[1]
         user_message = str(message.content)
