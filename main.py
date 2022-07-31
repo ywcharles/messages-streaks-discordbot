@@ -70,14 +70,13 @@ async def on_message(message):
         print(f"highest {highest_score_hash}, current {current_score_hash}")
 
         if user_message == "/current":
-            await message.channel.send(
-                f"@{user} current streak is {current_score_hash[user_id][0]} days"
+            await message.reply(
+                f"<@{message.author.id}>'s current streak is {current_score_hash[user_id][0]} days"
             )
 
         elif user_message == "/personal-best":
-            print(highest_score_hash)
-            await message.channel.send(
-                f"@{user} highest streak is {highest_score_hash[user_id][0]} days"
+            await message.reply(
+                f"<@{message.author.id}>'s highest streak is {highest_score_hash[user_id][0]} days"
             )
 
         elif user_message == "/leaderboard":
@@ -89,10 +88,10 @@ async def on_message(message):
                 score = value[0]
                 leaderboard_msg += f"{counter}. {user}: {score} days\n"
                 counter += 1
-            await message.channel.send(leaderboard_msg)
+            await message.reply(leaderboard_msg)
 
         elif user_message == "/help":
-            await message.channel.send(
+            await message.reply(
                 "/current: Check current score\n"
                 "/personal-best: Check personal highest score\n"
                 "/leaderboard: Check top 10 leaderboard\n"
