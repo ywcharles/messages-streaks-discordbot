@@ -77,7 +77,7 @@ async def on_message(message):
         elif user_message == "/personal-best":
             print(highest_score_hash)
             await message.channel.send(
-                f"@{user} highest streak is {highest_score_hash[user_id]} days"
+                f"@{user} highest streak is {highest_score_hash[user_id][0]} days"
             )
 
         elif user_message == "/leaderboard":
